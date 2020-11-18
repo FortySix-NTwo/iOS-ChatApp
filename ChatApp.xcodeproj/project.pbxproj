@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		08492F252565796200E756B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08492F242565796200E756B1 /* AppDelegate.swift */; };
 		08492F272565796200E756B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08492F262565796200E756B1 /* SceneDelegate.swift */; };
-		08492F292565796200E756B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08492F282565796200E756B1 /* ViewController.swift */; };
+		08492F292565796200E756B1 /* ConversationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08492F282565796200E756B1 /* ConversationsVC.swift */; };
 		08492F2C2565796200E756B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08492F2A2565796200E756B1 /* Main.storyboard */; };
 		08492F2E2565796200E756B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08492F2D2565796200E756B1 /* Assets.xcassets */; };
 		08492F312565796200E756B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08492F2F2565796200E756B1 /* LaunchScreen.storyboard */; };
+		08492F4625657BDD00E756B1 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08492F4525657BDD00E756B1 /* LogInVC.swift */; };
+		08492F4B25657C0E00E756B1 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08492F4A25657C0E00E756B1 /* SignUpVC.swift */; };
+		08492F4F25657C6800E756B1 /* ImageViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08492F4E25657C6800E756B1 /* ImageViewerVC.swift */; };
+		08492F5625657D2D00E756B1 /* VideoViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08492F5525657D2D00E756B1 /* VideoViewerVC.swift */; };
+		08492F5925657DF700E756B1 /* NewConversationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08492F5825657DF700E756B1 /* NewConversationsVC.swift */; };
+		08492F5D25657E2200E756B1 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08492F5C25657E2200E756B1 /* UserProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		08492F212565796100E756B1 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08492F242565796200E756B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08492F262565796200E756B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		08492F282565796200E756B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		08492F282565796200E756B1 /* ConversationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsVC.swift; sourceTree = "<group>"; };
 		08492F2B2565796200E756B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		08492F2D2565796200E756B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08492F302565796200E756B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08492F322565796200E756B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08492F4525657BDD00E756B1 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
+		08492F4A25657C0E00E756B1 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		08492F4E25657C6800E756B1 /* ImageViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerVC.swift; sourceTree = "<group>"; };
+		08492F5525657D2D00E756B1 /* VideoViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewerVC.swift; sourceTree = "<group>"; };
+		08492F5825657DF700E756B1 /* NewConversationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationsVC.swift; sourceTree = "<group>"; };
+		08492F5C25657E2200E756B1 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,93 @@
 		08492F232565796100E756B1 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
-				08492F242565796200E756B1 /* AppDelegate.swift */,
-				08492F262565796200E756B1 /* SceneDelegate.swift */,
-				08492F282565796200E756B1 /* ViewController.swift */,
-				08492F2A2565796200E756B1 /* Main.storyboard */,
-				08492F2D2565796200E756B1 /* Assets.xcassets */,
-				08492F2F2565796200E756B1 /* LaunchScreen.storyboard */,
+				08492F4225657AFC00E756B1 /* Assets */,
+				08492F3F25657A6E00E756B1 /* Utilities */,
+				08492F3D25657A4A00E756B1 /* Core */,
+				08492F3C25657A3A00E756B1 /* ViewModels */,
+				08492F3B25657A3200E756B1 /* Model */,
+				08492F3A25657A2C00E756B1 /* Views */,
+				08492F3925657A1B00E756B1 /* Controllers */,
 				08492F322565796200E756B1 /* Info.plist */,
 			);
 			path = ChatApp;
+			sourceTree = "<group>";
+		};
+		08492F3925657A1B00E756B1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				08492F4925657BE500E756B1 /* Authentication */,
+				08492F282565796200E756B1 /* ConversationsVC.swift */,
+				08492F4E25657C6800E756B1 /* ImageViewerVC.swift */,
+				08492F5525657D2D00E756B1 /* VideoViewerVC.swift */,
+				08492F5825657DF700E756B1 /* NewConversationsVC.swift */,
+				08492F5C25657E2200E756B1 /* UserProfileVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		08492F3A25657A2C00E756B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				08492F4025657AB800E756B1 /* StoryBoards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		08492F3B25657A3200E756B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		08492F3C25657A3A00E756B1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		08492F3D25657A4A00E756B1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				08492F242565796200E756B1 /* AppDelegate.swift */,
+				08492F262565796200E756B1 /* SceneDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		08492F3F25657A6E00E756B1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		08492F4025657AB800E756B1 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				08492F2A2565796200E756B1 /* Main.storyboard */,
+				08492F2F2565796200E756B1 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		08492F4225657AFC00E756B1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				08492F2D2565796200E756B1 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		08492F4925657BE500E756B1 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				08492F4525657BDD00E756B1 /* LogInVC.swift */,
+				08492F4A25657C0E00E756B1 /* SignUpVC.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +227,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08492F292565796200E756B1 /* ViewController.swift in Sources */,
+				08492F4F25657C6800E756B1 /* ImageViewerVC.swift in Sources */,
+				08492F4625657BDD00E756B1 /* LogInVC.swift in Sources */,
+				08492F292565796200E756B1 /* ConversationsVC.swift in Sources */,
+				08492F4B25657C0E00E756B1 /* SignUpVC.swift in Sources */,
+				08492F5925657DF700E756B1 /* NewConversationsVC.swift in Sources */,
+				08492F5D25657E2200E756B1 /* UserProfileVC.swift in Sources */,
 				08492F252565796200E756B1 /* AppDelegate.swift in Sources */,
 				08492F272565796200E756B1 /* SceneDelegate.swift in Sources */,
+				08492F5625657D2D00E756B1 /* VideoViewerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +385,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T65535QL34;
 				INFOPLIST_FILE = ChatApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,7 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T65535QL34;
 				INFOPLIST_FILE = ChatApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

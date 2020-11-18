@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ConversationsVC.swift
 //  ChatApp
 //
 //  Created by Jonathan Farber on 18/11/2020.
@@ -7,13 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+//  MARK: - Conversations View Controller
+class ConversationsVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
   }
-
-
 }
 
