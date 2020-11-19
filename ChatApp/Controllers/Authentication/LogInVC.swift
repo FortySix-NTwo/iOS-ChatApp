@@ -10,7 +10,9 @@ import UIKit
 //  MARK: - LogIn View Controller
 
 class LogInVC: UIViewController {
-  //  MARK: - Props
+  
+  //  MARK: - Properties
+  
   private var viewModel = LogInVM()
   
   private let iconIamge: UIImageView = {
@@ -22,20 +24,30 @@ class LogInVC: UIViewController {
   
   private let emailTextField = TextFieldInputView
     .textField(placeholder: "Email...")
+  
   private let passwordTextField = TextFieldInputView
     .secureTextField(placeholder: "Password...")
+  
   private lazy var emailContainerView = ContainerInputView
-    .containerView(imageName: "envelope", textField: emailTextField)
+    .containerView(
+      imageName: "envelope",
+      textField: emailTextField)
+  
   private lazy var passwordContainerView = ContainerInputView
-    .containerView(imageName: "lock", textField: passwordTextField)
-  private let loginButton = AuthenticationButton
-    .create(title: "Log In", selector: #selector(handleLogin))
-  private let unregisteredAccountButton = AuthenticationButton.attributedButton(
-    atributedText: "Don't have an account? ",
-    atributedTitle: "Sign up",
-    selector: #selector(handleUnregisteredButton)
-  )
-    
+    .containerView(
+      imageName: "lock",
+      textField: passwordTextField)
+  
+  private let loginButton: UIButton = AuthenticationButton
+    .titleButton(title: "Log In", selector: #selector(handleLogin), target: self)
+  
+  private let unregisteredAccountButton = AuthenticationButton
+    .attributedButton(
+      atributedText: "Don't have an account? ",
+      atributedTitle: "Sign up",
+      selector: #selector(handleUnregisteredButton),
+      target: self)
+  
   
   //  MARK: - LifeCycle
   override func viewDidLoad() {
@@ -49,7 +61,7 @@ class LogInVC: UIViewController {
     let controller = SignUpVC()
     navigationController?.pushViewController(controller, animated: true)
   }
-
+  
   @objc func textDidChange(sender: UITextField) {
     if sender == emailTextField {
       viewModel.email = sender.text
@@ -60,24 +72,24 @@ class LogInVC: UIViewController {
   }
   
   @objc func handleLogin() {
-//    guard let email = emailTextField.text else { return }
-//    guard let password = passwordTextField.text else { return }
-//
+    guard let email = emailTextField.text else { return }
+    guard let password = passwordTextField.text else { return }
+    
     showLoading(true, withText: "Loggin In")
     
-//    AuthService.userLogin(withEmail: email, password: password) {[weak self] (success) in
-//      guard let `self` = self else { return }
-//      //var message: String = ""
-//      if (success) {
-//          message = "User was sucessfully logged in."
-//         self.showLoading(false)
-//         self.dismiss(animated: true, completion: nil)
-//      } else {
-//        self.showLoading(false)
-//          message = "There was an error."
-//        return
-//      }
-//    }
+    AuthService.userLogin(withEmail: email, password: password) {[weak self] (success) in
+      guard let `self` = self else { return }
+      // var message: String = ""
+      if (success) {
+        // message = "User was sucessfully logged in."
+        self.showLoading(false)
+        self.dismiss(animated: true, completion: nil)
+      } else {
+        self.showLoading(false)
+        // message = "There was an error."
+        return
+      }
+    }
   }
   
   // MARK: - Handlers

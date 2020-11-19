@@ -15,19 +15,11 @@ class SignUpVC: UIViewController {
   
   private var profileImage: UIImage?
   
-  private let addPhotoButton: UIButton = {
-    let button = UIButton(type: .system)
-    button.tintColor = .white
-    button.setImage(#imageLiteral(resourceName: "PlusButton"), for: .normal)
-    button.imageView?.contentMode = .scaleToFill
-    button.clipsToBounds = true
-    button.addTarget(
-      self,
-      action: #selector(handlePhotoSelection),
-      for: .touchUpInside
-    )
-    return button
-  }()
+  private let addPhotoButton = AuthenticationButton
+    .imageButton(
+      image: #imageLiteral(resourceName: "PlusButton"),
+      selector: #selector(handlePhotoSelection),
+      target: self)
   
   private let emailTextField = TextFieldInputView
     .textField(placeholder: "Email...")
@@ -39,22 +31,32 @@ class SignUpVC: UIViewController {
     .secureTextField(placeholder: "Password...")
   
   private lazy var emailContainerView = ContainerInputView
-    .containerView(imageName: "envelope", textField: emailTextField)
+    .containerView(
+      imageName: "envelope",
+      textField: emailTextField)
   
   private lazy var fullnameContainerView = ContainerInputView
-    .containerView(imageName: "person", textField: fullnameTextField)
+    .containerView(
+      imageName: "person",
+      textField: fullnameTextField)
   
   private lazy var passwordContainerView = ContainerInputView
-    .containerView(imageName: "lock", textField: passwordTextField)
+    .containerView(
+      imageName: "lock",
+      textField: passwordTextField)
   
   private let signUpButton = AuthenticationButton
-    .create(title: "Sign In", selector: #selector(handleSignup))
+    .titleButton(
+      title: "Sign In",
+      selector: #selector(handleSignup),
+      target: self)
   
   private let registeredAccountButton = AuthenticationButton
     .attributedButton(
       atributedText: "Already have an account? ",
       atributedTitle: "Log in",
-      selector: #selector(handleRegisteredButton))
+      selector: #selector(handleRegisteredButton),
+      target: self)
   
   //  MARK: - LifeCycle
   override func viewDidLoad() {
@@ -86,29 +88,29 @@ class SignUpVC: UIViewController {
   }
   
   @objc func handleSignup() {
-    //    guard let email = emailTextField.text else { return }
-    //    guard let password = passwordTextField.text else { return }
-    //    guard let fullname = fullnameTextField.text else { return }
-    //    guard let image = profileImage else { return }
+    guard let email = emailTextField.text else { return }
+    guard let password = passwordTextField.text else { return }
+    guard let fullname = fullnameTextField.text else { return }
+    guard let image = profileImage else { return }
     
     showLoading(true, withText: "Creating a New Account")
     
-    //    let credentials = AuthenticationModel(email: email,
-    //                                          password: password,
-    //                                          fullname: fullname,
-    //                                          profileImage: image)
-    //
-    //    AuthService.userSignup(credentials: credentials) { [weak self] (success) in
-    //      guard let `self` = self else { return }
-    //      //var message: String = ""
-    //      if (success) {
-    //        self.showLoading(false)
-    //        self.dismiss(animated: true, completion: nil)
-    //      } else {
-    //        //message = "Signing up failed, please try again..."
-    //        self.showLoading(false)
-    //      }
-    //    }
+    let credentials = AuthenticationModel(email: email,
+                                          password: password,
+                                          fullname: fullname,
+                                          profileImage: image)
+    
+    AuthService.userSignup(credentials: credentials) { [weak self] (success) in
+      guard let `self` = self else { return }
+      //var message: String = ""
+      if (success) {
+        self.showLoading(false)
+        self.dismiss(animated: true, completion: nil)
+      } else {
+        //message = "Signing up failed, please try again..."
+        self.showLoading(false)
+      }
+    }
   }
   
   @objc func keyboardWillShow() {
@@ -179,13 +181,13 @@ class SignUpVC: UIViewController {
       for: .editingChanged
     )
     
-    NotificationCenter.default.addObserver(
+    NOTIFICATIONS.addObserver(
       self,
       selector: #selector(keyboardWillShow),
       name: UIResponder.keyboardWillShowNotification, object: nil
     )
     
-    NotificationCenter.default.addObserver(
+    NOTIFICATIONS.addObserver(
       self, selector: #selector(keyboardWillHide),
       name: UIResponder.keyboardWillHideNotification,
       object: nil
@@ -200,20 +202,18 @@ extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
     _ picker: UIImagePickerController,
     didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
   ) {
-    
     let image = info[.originalImage] as? UIImage
-    profileImage = image
     
+    profileImage = image
     addPhotoButton.setImage(image?.withRenderingMode(.alwaysOriginal), for: .normal)
     addPhotoButton.layer.borderColor = UIColor.white.cgColor
     addPhotoButton.layer.borderWidth = 3.0
     addPhotoButton.layer.cornerRadius = 200/2
-    
     dismiss(animated: true, completion: nil)
   }
 }
 
-//  MARK: - Authentication Protocol
+//  MARK: - Authentication Controller Protocol
 extension SignUpVC: AuthenticationControllerProtocol {
   func isFormValid() {
     if viewModel.formIsValid {
